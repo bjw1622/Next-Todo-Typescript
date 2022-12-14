@@ -22,6 +22,7 @@ app.post("/todo", function (req, res) {
 
 app.delete("/todoEntry", function (req, res) {
   todos = [];
+  res.send(todos);
 });
 
 app.delete("/todo", function (req, res) {
