@@ -1,6 +1,5 @@
 import React from "react";
-const TodoChangeBtn = (props) => {
-  const changeInput = () => {};
+const TodoChangeBtn = (props: { id: string; change: (id: string) => {} }) => {
   return (
     <button
       onClick={() => {

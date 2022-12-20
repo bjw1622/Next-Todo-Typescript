@@ -1,8 +1,10 @@
 import React from "react";
 
-const TodoCheckBtn = (props) => {
-  const checkClick = () => {};
-
+const TodoCheckBtn = (props: {
+  id: String;
+  check: Boolean;
+  checkClick: (id: String, check: Boolean) => {};
+}) => {
   return (
     <>
       <input

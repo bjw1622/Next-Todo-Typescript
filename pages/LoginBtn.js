@@ -5,7 +5,6 @@ export default function Component() {
     console.log(data);
     return (
       <>
-        <span style={{ backgroundImage: `url(${data.user.image})` }}></span>
         {data.user.email}
         <button onClick={() => signOut()}>Sign out</button>
       </>

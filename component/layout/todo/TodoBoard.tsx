@@ -4,11 +4,13 @@ import TodoItem from "./TodoItem";
 const TodoBoard = (props: {
   //props=>todolist, change, checkClick, delte
   todoList: [];
+  // 타입이 다른데 왜 에러 발생X??
   // change: (id: string) => void;
   change: string;
   delete: {};
   checkClick: {};
 }) => {
+  console.log(props);
   return (
     <div>
       {props.todoList.map(

@@ -4,13 +4,12 @@ import TodoBoard from "../../component/layout/todo/TodoBoard";
 import styles from "../../styles/index.module.scss";
 const { default: Axios, default: axios } = require("axios");
 
-const todo = ({ data }) => {
+const todo = ({ data }: { data: object }) => {
   // const [inputValue, setInputValue] = useState<String>("");
-  const [inputValue, setInputValue] = useState("");
-  const [todoList, setTodoList] = useState([]);
-
+  console.log(data);
+  const [inputValue, setInputValue] = useState<String>("");
+  const [todoList, setTodoList] = useState<Array>([]);
   const id = uuidv4();
-
   const addData = {
     id,
     inputValue,
