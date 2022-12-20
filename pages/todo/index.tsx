@@ -4,11 +4,9 @@ import TodoBoard from "../../component/layout/todo/TodoBoard";
 import styles from "../../styles/index.module.scss";
 const { default: Axios, default: axios } = require("axios");
 
-const todo = ({ data }: { data: object }) => {
-  // const [inputValue, setInputValue] = useState<String>("");
-  console.log(data);
-  const [inputValue, setInputValue] = useState<String>("");
-  const [todoList, setTodoList] = useState<Array>([]);
+const Todo = ({ data }: { data: [] }) => {
+  const [inputValue, setInputValue] = useState("");
+  const [todoList, setTodoList] = useState([]);
   const id = uuidv4();
   const addData = {
     id,
@@ -18,7 +16,7 @@ const todo = ({ data }: { data: object }) => {
 
   useEffect(() => {
     setTodoList(data);
-  }, []);
+  });
 
   const changeInput = (id: String) => {
     const changeInputValue = prompt("수정 내용을 입력해주세요");
@@ -28,9 +26,10 @@ const todo = ({ data }: { data: object }) => {
       }).then((res: { data: [] }) => {
         setTodoList(res.data);
       });
-      // } else if (changeInputValue.trim() !== "") {
-      //   alert("올바른 값을 입력해주세요.");
     }
+    // else if (changeInputValue.trim() !== "") {
+    //   alert("올바른 값을 입력해주세요.");
+    // }
   };
 
   const checkClick = (id: string) => {
@@ -77,7 +76,7 @@ const todo = ({ data }: { data: object }) => {
       );
     }
   };
-
+  console.log(todoList);
   return (
     <>
       <div className={styles.todoList}>
@@ -99,7 +98,7 @@ const todo = ({ data }: { data: object }) => {
           전체 삭제
         </button>
         <TodoBoard
-          todoList={todoList}
+          todoListAR={todoList}
           delete={DeleteList}
           change={changeInput}
           checkClick={checkClick}
@@ -120,4 +119,4 @@ export const getServerSideProps = async () => {
     return { props: {} };
   }
 };
-export default todo;
+export default Todo;
